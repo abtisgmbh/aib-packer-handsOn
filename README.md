@@ -54,6 +54,8 @@ az login
 az ad sp create-for-rbac --role Contributor --scopes /subscriptions/$(az account show --query id -o tsv) --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
+> ☝️ This will assign the 'Contributor' role to the service principal at the subscription level. This allows Packer to create the ressources, necessary to build the image. Please be aware that this is a highly privileged role and Packer might just be fine with a custom role that grants only the necessary permissions: [Create or update Azure custom roles using Azure CLI - Azure RBAC | Microsoft Learn](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles-cli)
+
 4. Update the [var-file.json](build/packer/var-file.json) with the output of the last command and all for the deployment required information (resource group, name of the compute gallery, etc.)
 
 5. If you are using the Marketplace source from the minimal example you need to accept its terms and conditions:
