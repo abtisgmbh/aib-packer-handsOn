@@ -1,0 +1,10 @@
+{
+  "client_id": "",
+  "client_secret": "",
+  "tenant_id": "",
+  "subscription_id": "",
+  "resource_group" : "rg-imagebuilder-test",
+  "gallery_name": "cgimagebuildertest",
+  "image_name": "myTestImageDefinition",
+  "image_version": "1.0.2"
+}
